@@ -1,3 +1,6 @@
 #question_body {
   padding-top: 30px;
 }
+.glyphicon-heart-empty:hover{
+  color: red;
+}

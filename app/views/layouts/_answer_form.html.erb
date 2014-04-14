@@ -1,6 +1,6 @@
-<%= form_for [@question, @answer] do |f| %>
+<%= form_for [@question, @answer], remote: true, :html => { :id => "new_answer" } do |f| %>
   <div class="form-group">
-    <%= f.label :response, "Question" %>
+    <%= f.label :response, "Answer" %><br>
     <%= f.text_area :response %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :question_id, value: @question.id %>

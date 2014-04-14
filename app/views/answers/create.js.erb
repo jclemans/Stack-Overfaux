@@ -1,3 +1,3 @@
 $('#new_answer').remove();
 $('#new_link').show();
-$('#answers').append('<li><h4><span class="glyphicon glyphicon-heart-empty" id="fav_answer"></span> <%= j @answer.response %></h4></li>');
+$('#answers').append('<li><h4><a class="glyphicon glyphicon-heart-empty" id="fav_answer"></a> <%= j @answer.response %></h4></li>');

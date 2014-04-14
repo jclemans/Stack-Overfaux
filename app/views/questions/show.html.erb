@@ -9,9 +9,12 @@
 <ul class="list-unstyled" id="answers">
 <% @question.answers.each do |answer| %>
   <li><h4>
-    <% if @question.user == current_user && !current_user.nil? %>
+    <% if !@question.favorite.nil? && answer == @question.favorite.answer %>
+      <span class="glyphicon glyphicon-heart"></span>
+    <% elsif @question.user == current_user && !current_user.nil? && @question.favorite.nil? %>
       <%= link_to "", favorites_path(:favorite => { :answer_id => answer.id, :question_id => @question.id }), :class => "glyphicon glyphicon-heart-empty", :method => :post %>
     <% end %>
-      <%= answer.response %></h4></li>
+      <%= answer.response %></h4>
+  </li>
 <% end %>
 </ul>

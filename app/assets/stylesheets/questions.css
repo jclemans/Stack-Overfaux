@@ -3,4 +3,14 @@
 }
 .glyphicon-heart-empty:hover{
   color: red;
+  text-decoration: none;
+}
+
+.glyphicon-heart {
+  color: red;
+}
+
+.glyphicon-heart:hover {
+  color: red;
+  text-decoration: none;
 }

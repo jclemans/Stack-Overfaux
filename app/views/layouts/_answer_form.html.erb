@@ -1,0 +1,9 @@
+<%= form_for [@question, @answer] do |f| %>
+  <div class="form-group">
+    <%= f.label :response, "Question" %>
+    <%= f.text_area :response %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :question_id, value: @question.id %>
+  </div>
+  <%= f.submit "Post", :class => "btn btn-primary" %>
+<% end %>

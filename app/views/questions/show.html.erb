@@ -2,3 +2,5 @@
   <h2>Question:</h2>
   <h4><%= @question.post %> </h4>
 </div>
+
+<%= link_to "Add Answer", new_question_answer_path(@question), :class => "btn btn-default", id: "new_link", remote: true %>

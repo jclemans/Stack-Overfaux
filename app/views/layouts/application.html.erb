@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>StackOverflow</title>
+  <title>StackOverfaux</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <%= link_to "Home", root_path, :class => "navbar-text pull-left" %>
+      <div class="signin">
+        <% if current_user %>
+          Logged in as <%= current_user.username %>
+          <%= link_to "Log Out", logout_path,  :class => "navbar-text pull-right"  %>
+        <% else %>
+          <%= link_to "Register", signup_path, :class => "navbar-text pull-right" %>
+          <%= link_to "Log In", login_path, :class => "navbar-text pull-right" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<div class="container" id="main">
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
 
 <%= yield %>
 
+</div>
 </body>
 </html>

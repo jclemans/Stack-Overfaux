@@ -1,0 +1,9 @@
+
+development:
+  adapter: postgresql
+  database: Stack_Overflow_development
+
+
+test:
+  adapter: postgresql
+  database: Stack_Overflow_test

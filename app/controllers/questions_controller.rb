@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-
+  before_filter :authorize, only: [:new, :create]
   def index
     @questions = Question.all
   end
@@ -15,6 +15,10 @@ class QuestionsController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def show
+    @question = Question.find(params[:id])
   end
 
 private

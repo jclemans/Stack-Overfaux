@@ -1,0 +1,8 @@
+<h1>Questions</h1>
+
+<%= link_to "Add Question", new_question_path, :class => "btn btn-primary" %>
+<ul>
+  <% @questions.each do |q| %>
+    <li><%= q.post %></li>
+    <% end %>
+</ul>

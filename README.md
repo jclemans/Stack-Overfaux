@@ -3,7 +3,7 @@ Stack Overflow Clone
 
 Summary
 -------
-Goal is to make a basic clone of Stack Overflow functionality.
+Goal is to make a basic clone of Stack Overflow functionality using AJAX. This is our first attempt at using AJAX in a ruby on rails app.
 
 User Stories
 ------------

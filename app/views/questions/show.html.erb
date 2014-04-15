@@ -5,16 +5,22 @@
 
 <%= link_to "Add Answer", new_question_answer_path(@question), :class => "btn btn-default", id: "new_link", remote: true %>
 
+<% if !@question.favorite.nil? %>
+<h2>Favorite Answer:</h2>
+<div class="fav">
+  <h4><span class="glyphicon glyphicon-heart"></span><%= @question.favorite.answer.response %></h4>
+</div>
+<% end %>
+
 <h2>Answers:</h2>
 <ul class="list-unstyled" id="answers">
 <% @question.answers.each do |answer| %>
   <li><h4>
-    <% if !@question.favorite.nil? && answer == @question.favorite.answer %>
-      <span class="glyphicon glyphicon-heart"></span>
-    <% elsif @question.user == current_user && !current_user.nil? && @question.favorite.nil? %>
-      <%= link_to "", favorites_path(:favorite => { :answer_id => answer.id, :question_id => @question.id }), :class => "glyphicon glyphicon-heart-empty", :method => :post %>
-    <% end %>
+    <% if @question.user == current_user && !current_user.nil? && @question.favorite.nil? %>
+      <%= link_to "", favorites_path(:favorite => { :answer_id => answer.id, :question_id => @question.id }), :class => "glyphicon glyphicon-heart-empty", :method => :post, remote: true %>
+    <% elsif @question.favorite.nil? || answer != @question.favorite.answer  %>
       <%= answer.response %></h4>
+      <% end %>
   </li>
 <% end %>
 </ul>
